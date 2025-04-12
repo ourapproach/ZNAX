@@ -1,7 +1,7 @@
 # Replication package for paper "Robust Device Authentication with Zero-Cost NAS and Cross-Domain Knowledge Transfer"
 ## 🔍 Framework Overview
 
-![ZNAX Framework](assets/znax_framework.png)
+![ZNAX Framework](assets/ZNAX.png)
 
 > *Figure: ZNAX operates in three stages—NAS-based ViT search, contrastive pre-training using a source domain, and supervised fine-tuning on target RF data.*
 This repository provides the implementation of **ZNAX**, a framework designed for robust and efficient Specific Emitter Identification (SEI) using:
