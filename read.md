@@ -8,14 +8,9 @@ This repository provides the code and resources for the research paper **"Robust
 ## Framework Overview  
 The proposed framework addresses the neural network design complexity and data scarcity challenges of **deep learning-based Specific Emitter Identification (SEI)**. SEI authenticate wireless devices based on their unique Radio Frequency Fingerprints (RFFs). The framework is dubbed **ZNAX**, where **Z** stands for **Zero-Cost**, **NA** for **NAS**, and **X** for **Cross-domain**. **ZNAX** leverages **zero-cost NAS** for optimal architecture discovery for RFF extraction and employs a **cross-domain knowledge transfer** approach to mitigate data scarcity. The **ZNAX** framework operates in three sequential stages, as shown in the figure. **ZNAX** facilitates lightweight architecture search and generalizable wireless device authentication with minimal labeled data, making it well-suited for edge computing scenarios.
 
-
 ---
 
-
-
----
-
-## 🧠 Pipeline Stages
+## Pipeline Stages
 
 ### 1. Zero-Cost NAS
 - Searches ViT configurations based on discriminability, trainability, cohesiveness, and attention diversity
