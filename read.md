@@ -49,7 +49,7 @@ In the source code, look for lines marked with:
 ```python
 # Replace with your actual path
 ```
-Please replace these placeholder paths with the actual paths to your data or files. For example:
+Please replace these placeholder paths with the actual paths to data or files. For example:
 
 ```python
 data_path = "/path/to/data"  # Replace with your actual path
