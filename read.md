@@ -22,10 +22,9 @@ The proposed framework addresses the neural network design complexity and data s
 
 ### 3. Supervised Fine-Tuning
 - To fully adapt the RFF extractor for SEI, supervised fine-tuning is performed alongside a classifier.
-- Raw RF samples are first converted into spectrograms.
-- As a preprocessing step, each spectrogram is divided into patches and passed through patch embedding and positional encoding.
-- The resulting representations are then fed into the pre-trained network to extract RFFs.
-- An MLP classifier is placed on top of the transformer encoder to map the extracted RFFs to their corresponding device labels. As fine-tuning progresses, the model gradually adapts to the target domain and enables effective device authentication under data scarcity.
+- As a preprocessing step, raw RF samples are first converted into **spectrograms**, and each spectrogram is divided into patches and passed through patch embedding and positional encoding.
+- The **resulting representations** are then fed into the **pre-trained network** to extract **RFFs**.
+- An **MLP classifier** is placed on top of the **Transformer encoder** to map the extracted RFFs to their corresponding device labels. As fine-tuning progresses, the model gradually adapts to the target domain and enables effective **device authentication under data scarcity**.
 
 ---
 
