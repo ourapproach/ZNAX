@@ -3,14 +3,10 @@
 ![ZNAX Framework](./ZNAX.PNG)
 > Figure: A Conceptual Overview 
 
-This repository provides the code and resources for the research paper **"Robust Device Authentication with Zero-Cost NAS and Cross-Domain Knowledge Transfer."** The proposed framework leverages zero-cost proxies and cross-domain knowledge transfer to address key challenges in deep learning based Specific Emitter Identification (SEI).
+This repository provides the code and resources for the research paper **"Robust Device Authentication with Zero-Cost NAS and Cross-Domain Knowledge Transfer."** The proposed framework leverages zero-cost proxies and cross-domain knowledge transfer to address key challenges in deep learning-based Specific Emitter Identification (SEI).
 
-
-- ⚙️ **Zero-Cost Neural Architecture Search (NAS)** to find optimal Vision Transformer (ViT) architectures without full training
-- 🌐 **Cross-Domain Knowledge Transfer** to overcome RF data scarcity using contrastive learning and domain alignment
-
-## 🔍 Framework Overview  
-The proposed framework addresses the neural network design complexity and data scarcity challenges of **deep learning-based Specific Emitter Identification (SEI)**. It is dubbed **ZNAX**, where **Z** stands for **Zero-Cost**, **NA** for **NAS**, and **X** for **Cross-domain**. The framework leverages **zero-cost NAS** for optimal architecture discovery and employs a **cross-domain knowledge transfer** approach to mitigate data scarcity. The **ZNAX** framework operates in three sequential stages, as shown in **the figure**.
+## Framework Overview  
+The proposed framework addresses the neural network design complexity and data scarcity challenges of **deep learning-based Specific Emitter Identification (SEI)**. SEI authenticate wireless devices based on their unique Radio Frequency Fingerprints (RFFs). The framework is dubbed **ZNAX**, where **Z** stands for **Zero-Cost**, **NA** for **NAS**, and **X** for **Cross-domain**. **ZNAX** leverages **zero-cost NAS** for optimal architecture discovery and employs a **cross-domain knowledge transfer** approach to mitigate data scarcity. The **ZNAX** framework operates in three sequential stages, as shown in **the figure**.
 
 
 
