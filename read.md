@@ -4,7 +4,7 @@
 ![ZNAX Framework](./ZNAX.PNG)
 
 
-> *Figure: ZNAX operates in three stages— Zero-Cost NAS-based ViT architecture search, pre-training phase which consits of contrastive training and domain alignment, and supervised fine-tuning on target RF data.*
+> *Figure: ZNAX operates in three sequential stages— Zero-Cost NAS-based ViT architecture search, pre-training phase which consits of contrastive training and domain alignment, and supervised fine-tuning on target RF data.*
 This repository provides the implementation of **ZNAX**, a framework designed for robust and efficient Specific Emitter Identification (SEI) using:
 
 - ⚙️ **Zero-Cost Neural Architecture Search (NAS)** to find optimal Vision Transformer (ViT) architectures without full training
