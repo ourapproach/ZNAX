@@ -40,4 +40,3 @@ pip install -r requirements.txt
 ```
 This project is built with Python ≥ 3.10 and PyTorch 2.1.0. Offline computations are performed on NVIDIA A100 GPU. Other dependencies include: `torchvision`, `einops`, `numpy`, `scikit-learn`, `scipy`, `matplotlib`, `h5py`, `thop`.
 
-
