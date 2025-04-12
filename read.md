@@ -13,8 +13,8 @@ The proposed framework addresses the neural network design complexity and data s
 ## Pipeline Stages
 
 ### 1. Zero-Cost NAS
-- Searches ViT configurations based on discriminability, trainability, cohesiveness, and attention diversity
-- Uses a single forward-backward pass per architecture and evolutionary ranking
+- Searches for the optimal ViT encoder block configuration for RFF extraction based on four designed zero-cost proxies: **Discriminability**, **Trainability**, **Cohesiveness**, and **Diversity**.
+- Uses a single forward-backward pass to compute the proxy score and employs evolutionary search to refine the selection.
 
 ### 2. Cross-Domain Pre-Training
 - Transfers knowledge from a source image dataset (e.g., CIFAR-10, MNIST) to RF domain
