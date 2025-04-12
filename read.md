@@ -32,6 +32,8 @@ The proposed framework addresses the neural network design complexity and data s
 - For the source domain, well-established, data-rich image classification datasets such as **MNIST**, **CIFAR-10** and **CIFAR-100** are used.
 - For the target domain non-augmented **RFFI dataset** is use which consists of RF samples. **RFFI dataset** can be downloaded from https://ieee-dataport.org/open-access/lorarffidataset
 
+---
+
 ## Dependencies
 Install the required packages using:
 
@@ -39,4 +41,16 @@ Install the required packages using:
 pip install -r requirements.txt
 ```
 This project is built with **Python ≥ 3.10** and **PyTorch 2.1.0**. Offline computations are performed on **NVIDIA A100 GPU**. Other dependencies include: `torchvision`, `einops`, `numpy`, `scikit-learn`, `scipy`, `matplotlib`, `h5py`, `thop`.
+
+## Important: Update File Paths
+
+In the source code, look for lines marked with:
+
+```python
+# Replace with your actual path
+```
+Please replace these placeholder paths with the actual paths to your data or files. For example:
+
+```python
+data_path = "/path/to/data"  # Replace with your actual path
 
