@@ -2,8 +2,6 @@
 ## 🔍 Framework Overview
 
 ![ZNAX Framework](./ZNAX.PNG)
-
-
 > Figure: A Conceptual Overview 
 
 ZNAX operates in three sequential stages—Zero-Cost NAS-based ViT architecture search, a pre-training phase consisting of contrastive training and domain alignment, and supervised fine-tuning on target RF data with a few samples.
