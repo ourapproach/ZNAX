@@ -105,7 +105,8 @@ class VisionTransformer(nn.Module):
 
     def get_margins(self):
         return self.learnable_margins()
-      # Dataset Preparation with Data Augmentation (Optional and applicable only for training data)
+      
+# Dataset Preparation with Data Augmentation (Optional and applicable only for training data)
 train_transform = transforms.Compose([
     transforms.Resize((32, 32)),
     #transforms.RandomHorizontalFlip(),  # Random horizontal flip for augmentation
@@ -304,6 +305,7 @@ for epoch in range(30):
         f"Val Loss: {total_val_loss / len(val_loader):.4f}, "
         f"m1: {m1.item():.4f}, m2: {m2.item():.4f}"
     )
+
 
 # After training, save embeddings and model
 
@@ -585,7 +587,8 @@ def dual_margin_contrastive_loss(emb1, emb2, label, m1, m2):
     loss =  30 * torch.mean(loss_pos + loss_neg)
 
     return loss
-  #Domain Alignment
+  
+#Domain Alignment
 def mmd_loss(source, target, kernel='rbf', bandwidth=1.0, sample_size=1024):
     # Ensure embeddings are 2D (batch_size, emb_dim)
     source = source.view(source.size(0), -1)  # (N_source, D)
