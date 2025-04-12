@@ -4,7 +4,7 @@
 ![ZNAX Framework](./ZNAX.PNG)
 > Figure: A Conceptual Overview 
 
-ZNAX operates in three sequential stages—Zero-Cost NAS-based ViT architecture search, a pre-training phase consisting of contrastive training and domain alignment, and supervised fine-tuning on target RF data with a few samples.
+The proposed framework leverages Zero-Cost NAS for optimal configuration discovery and employs a cross-domain knowledge transfer approach to address data scarcity. It is dubbed ZNAX, where Z stands for Zero-Cost, NA for NAS, and X for Cross-domain. ZNAX operates in three sequential stages: Zero-Cost NAS-based ViT architecture search, a pre-training phase consisting of contrastive training and domain alignment, and supervised fine-tuning on target RF data with a few samples.
 This repository provides the implementation of **ZNAX**, a framework designed for robust and efficient Specific Emitter Identification (SEI) using:
 
 - ⚙️ **Zero-Cost Neural Architecture Search (NAS)** to find optimal Vision Transformer (ViT) architectures without full training
