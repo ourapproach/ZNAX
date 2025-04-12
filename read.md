@@ -3,7 +3,7 @@
 ![ZNAX Framework](./ZNAX.PNG)
 > Figure: A Conceptual Overview 
 
-This repository provides the code and resources for the research paper **"Robust Device Authentication with Zero-Cost NAS and Cross-Domain Knowledge Transfer."** The proposed framework leverages zero-cost proxies and cross-domain knowledge transfer to address key challenges in deep learning-based Specific Emitter Identification (SEI).
+This repository provides the code and resources for the research paper **"Robust Device Authentication with Zero-Cost NAS and Cross-Domain Knowledge Transfer."** The proposed framework leverages zero-cost Neural Architecture Search (NAS) and cross-domain knowledge transfer to address key challenges in deep learning-based Specific Emitter Identification (SEI).
 
 ---
 
@@ -16,13 +16,16 @@ The proposed framework addresses the neural network design complexity and data s
 - Searches for the optimal ViT encoder block configuration for RFF extraction based on four designed zero-cost proxies: **Discriminability**, **Trainability**, **Cohesiveness**, and **Diversity**.
 - Computes proxy scores through a single forward-backward pass, applies **non-linear aggregation** to obtain an accumulative score for ranking the sampled architectures, and employs **evolutionary search** to refine the selection—identifying the top-ranked architecture that consistently performs well across all proxies.
 
-
-### 2. Cross-Domain Pre-Training
-- Transfers knowledge from a source image dataset (e.g., CIFAR-10, MNIST) to RF domain
-- Uses dual-margin contrastive loss and Maximum Mean Discrepancy (MMD) to align feature distributions
+### 2. Pre-Training Phase
+- Source dataset from a data-rich domain and target dataset from a data-scarce domain are fed to identified network to extract respective embeddings.
+- Contrastive training and domain alignment are performed jointly. Specifically, the **dual-margin contrastive loss** structures the embedding space for improved discriminability, while the **Maximum Mean Discrepancy (MMD)** objective facilitates alignment between the source domain and the RF data-scarce target domain.
 
 ### 3. Supervised Fine-Tuning
-- Trains the ViT encoder and classifier on a small labeled RF dataset for final emitter classification
+- To fully adapt the RFF extractor for SEI, supervised fine-tuning is performed alongside a classifier.
+- Raw RF samples are first converted into spectrograms.
+- As a preprocessing step, each spectrogram is divided into patches and passed through patch embedding and positional encoding.
+- The resulting representations are then fed into the pre-trained network to extract RFFs.
+- An MLP classifier is placed on top of the transformer encoder to map the extracted RFFs to their corresponding device labels. As fine-tuning progresses, the model gradually adapts to the target domain and enables effective device authentication under data scarcity.
 
 ---
 
