@@ -81,8 +81,15 @@ This script computes Spearman's and Kendall's correlation coefficients to evalua
 ```python
 Correlation Coefficients.py
 ```
+
 ### PreTraining_t_SNE
 This script visualizes the embeddings learned during pre-training using t-SNE for dimensionality reduction. It helps in visualizing how well the learned embeddings from source and target domains are structured. To run: 
 ```python
 PreTraining_t_SNE.py
+```
+
+### #Flops and #Param
+This script calculates the FLOPs (Floating Point Operations) and parameter count for the top-ranked architectures, helping to assess their computational efficiency and resource requirements. To run:
+```python
+#Flops and #Param.py
 ```
