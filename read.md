@@ -74,3 +74,15 @@ main.py
 - Next, run the supervised fine-tuning block in the code. This phase fine-tunes the ViT encoder alongside a classifier on a small labeled RF dataset to perform final emitter identification. Finally, evaluate the fine-tuned model on the test dataset to assess its performance and generalization ability.
 
 Again, make sure to replace the file path with the actual path to your test dataset in the code.
+
+## Additional Scripts
+### Correlation Coefficients
+This script computes Spearman's and Kendall's correlation coefficients to evaluate how well the predicted rankings align with the true rankings. To run:
+```python
+Correlation Coefficients.py
+```
+### PreTraining_t_SNE
+This script visualizes the embeddings learned during pre-training using t-SNE for dimensionality reduction. It helps in visualizing how well the learned embeddings from source and target domains are structured. To run: 
+```python
+PreTraining_t_SNE.py
+```
