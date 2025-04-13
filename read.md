@@ -43,7 +43,6 @@ pip install -r requirements.txt
 This project is built with **Python ≥ 3.10** and **PyTorch 2.1.0**. Offline computations are performed on **NVIDIA A100 GPU**. Other dependencies include: `torchvision`, `einops`, `numpy`, `scikit-learn`, `scipy`, `matplotlib`, `h5py`, `thop`.
 
 ## Important: Update File Paths
-
 In the source code, look for lines marked with:
 
 ```python
@@ -53,4 +52,14 @@ Please replace these placeholder paths with the actual paths to data or files. F
 
 ```python
 data_path = "/path/to/data"  # Replace with your actual path
+```
 
+---
+
+## How to run ZNAX?
+Run the following script to search for the optimal Vision Transformer (ViT) configuration using zero-cost proxies:
+
+```python 
+ZC_Proxies_Ranking.py
+```
+This script ranks candidate architectures based on four proxy metrics such as discriminability, trainability, cohesiveness, and diversity. Update any lines marked with `# Replace with your actual path` in the script to point to the correct data location on your system.
