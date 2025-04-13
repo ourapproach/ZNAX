@@ -71,7 +71,7 @@ With the optimal configuration identified during the architecture search phase, 
 main.py
 ```
 - Run the pre-training block in the code first. This step performs contrastive training and domain alignment, where dual-margin contrastive loss and MMD are jointly optimized to structure the embedding space—enhancing discriminability while aligning the source domain with the RF data-scarce target domain. 
-- Next, run the supervised fine-tuning block in the code. This phase fine-tunes the ViT encoder alongside a classifier on a small labeled RF dataset to perform final emitter identification. Finally, evaluate the fine-tuned model on the test dataset to assess its performance and generalization ability.
+- Next, run the supervised fine-tuning block in the code. This phase fine-tunes the Transformer encoder alongside a classifier on a small labeled RF dataset to perform final emitter identification. Finally, evaluate the fine-tuned model on the test dataset to assess its performance and generalization ability.
 
 Again, make sure to replace the file path with the actual path to your test dataset in the code.
 
