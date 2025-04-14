@@ -14,7 +14,7 @@ The proposed framework addresses the neural network design complexity and data s
 
 ### 1. Zero-Cost NAS
 - Searches for the optimal ViT encoder block configuration for RFF extraction based on four designed zero-cost proxies: **Discriminability**, **Trainability**, **Cohesiveness**, and **Diversity**.
-- Computes proxy scores through a single forward-backward pass, applies **non-linear aggregation** to obtain an accumulative score for ranking the sampled architectures, and employs **evolutionary search** to refine the selection—identifying the top-ranked architecture that consistently performs well across all proxies.
+- Computes proxy scores through a single forward-backward pass, applies **non-linear aggregation** to obtain an accumulative score for ranking the sampled architectures, and conducts **evolutionary search** to refine the selection—identifying the top-ranked architecture that consistently performs well across all proxies.
 
 ### 2. Pre-Training Phase
 - Source dataset from a data-rich domain and target dataset from a data-scarce domain are fed to identified network to extract respective embeddings.
