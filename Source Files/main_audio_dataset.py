@@ -29,9 +29,9 @@ import cv2
 warnings.filterwarnings("ignore")
 
 drive.mount('/content/drive') #Replace with your actual path
-# -----------------------
+
 # Patch Embedding
-# -----------------------
+
 class PatchEmbedding(nn.Module):
     def __init__(self, img_size, patch_size, in_channels, embed_dim):
         super().__init__()
@@ -42,9 +42,9 @@ class PatchEmbedding(nn.Module):
         x = x.flatten(2).transpose(1, 2)
         return x
 
-# -----------------------
+
 # Multi-Head Self-Attention
-# -----------------------
+
 class MultiHeadSelfAttention(nn.Module):
     def __init__(self, embed_dim, num_heads):
         super().__init__()
@@ -62,9 +62,9 @@ class MultiHeadSelfAttention(nn.Module):
         x = (attn @ v).transpose(1, 2).reshape(B, N, C)
         return self.proj(x)
 
-# -----------------------
+
 # Transformer Encoder Block
-# -----------------------
+
 class TransformerEncoder(nn.Module):
     def __init__(self, embed_dim, num_heads, mlp_dim):
         super().__init__()
@@ -83,9 +83,9 @@ class TransformerEncoder(nn.Module):
         x = x + self.mlp(self.norm2(x))
         return x
 
-  # -----------------------
+  
 # Learnable Margins
-# -----------------------
+
 class LearnableMargins(nn.Module):
     def __init__(self, initial_m1=0.0, initial_m2=0.6):
         super().__init__()
@@ -95,9 +95,9 @@ class LearnableMargins(nn.Module):
     def forward(self):
         return torch.clamp(self.m1, min=0), torch.clamp(self.m2, min=self.m1 + 0.1)
 
-# -----------------------
+
 # Learnable Threshold
-# -----------------------
+
 class LearnableThreshold(nn.Module):
     def __init__(self, initial_threshold=0.2):
         super().__init__()
@@ -106,9 +106,9 @@ class LearnableThreshold(nn.Module):
     def forward(self):
         return torch.clamp(self.threshold, min=0.0, max=1.0)
 
-# -----------------------
+
 # Dual Margin Contrastive Loss
-# -----------------------
+
 def dual_margin_contrastive_loss(emb1, emb2, label, m1, m2, threshold):
     emb1 = F.normalize(emb1, p=2, dim=1)
     emb2 = F.normalize(emb2, p=2, dim=1)
@@ -123,9 +123,9 @@ def dual_margin_contrastive_loss(emb1, emb2, label, m1, m2, threshold):
     loss = 30.0 * torch.mean(loss_pos + loss_neg)
     return loss
 
-# -----------------------
+
 # Vision Transformer
-# -----------------------
+
 class VisionTransformer(nn.Module):
     def __init__(self, img_size, patch_size, in_channels, embed_dim, depth, num_heads, mlp_dim):
         super().__init__()
@@ -149,9 +149,9 @@ class VisionTransformer(nn.Module):
     def get_margins(self):
         return self.learnable_margins()
 
-  # -----------------------
+
 # Unlabeled Dataset
-# -----------------------
+
 class UnlabeledSpectrogramDataset(Dataset):
     def __init__(self, dataset, cache_dir, max_length=128, use_gpu=True):
         self.dataset = dataset
@@ -203,9 +203,9 @@ class UnlabeledSpectrogramDataset(Dataset):
         random.shuffle(indices)
         self.pairs = [(indices[i], indices[i + 1]) for i in range(0, len(indices) - 1, 2)]
 
-# -----------------------
+
 # Prepare Data
-# -----------------------
+
 raw_data = SPEECHCOMMANDS(root='./', download=True)
 subset_data = torch.utils.data.Subset(raw_data, list(range(64000)))
 
@@ -216,9 +216,9 @@ spectrogram_dataset = UnlabeledSpectrogramDataset(
 
 train_loader = DataLoader(spectrogram_dataset, batch_size=64, shuffle=False)
 
-# -----------------------
+
 # Model Initialization
-# -----------------------
+
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 model = VisionTransformer(
@@ -244,9 +244,9 @@ optimizer = AdamW(
 )
 scheduler = CosineAnnealingLR(optimizer, T_max=20)
 
-# -----------------------
-# Training Loop
-# -----------------------
+
+# Training Loop 
+
 model.train()
 num_epochs = 20
 total_steps = 0
@@ -280,15 +280,15 @@ for epoch in range(num_epochs):
     print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {avg_loss:.4f}, m1: {m1.item():.4f}, m2: {m2.item():.4f}, threshold: {threshold.item():.4f}")
 
 # Save model
-save_path = '/content/drive/MyDrive/vit_model_speechcommands.pth'
+save_path = '/content/drive/MyDrive/vit_model_speechcommands.pth' # Replace with your actual path
 torch.save(model.state_dict(), save_path)
 print(f"Model saved to {save_path}")
 
-# -----------------------
+
 # Save Embeddings
-# -----------------------
+
 model.eval()
-save_path_embeddings = '/content/drive/MyDrive/embeddings_speechcommands.npy'
+save_path_embeddings = '/content/drive/MyDrive/embeddings_speechcommands.npy' # Replace with your actual path
 
 all_embeddings1 = []
 all_embeddings2 = []
@@ -313,11 +313,11 @@ np.save(save_path_embeddings, combined_embeddings)
 print(f"Embeddings saved at: {save_path_embeddings}")
 
 # print("spec1 shape:", spec1.shape)
-# with h5py.File('/content/drive/MyDrive/dataset_training_no_aug.h5', 'r') as f:
+# with h5py.File('/content/drive/MyDrive/dataset_training_no_aug.h5', 'r') as f: # Replace with your actual path
 #     print(f['data'].shape)   # Should print something like (N, ...)
 #     print(f['label'].shape)  # If it prints (1,), then that's wrong
 
-# ----------------------- 1. Model Definitions -----------------------
+# Model Definitions 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Using device: {device}")
@@ -404,19 +404,19 @@ class VisionTransformer(nn.Module):
 
 # instantiate & load
 model = VisionTransformer().to(device)
-state = torch.load('/content/drive/MyDrive/vit_model_speechcommands.pth', map_location=device)
+state = torch.load('/content/drive/MyDrive/vit_model_speechcommands.pth', map_location=device) # Replace with your actual path
 model.load_state_dict(state, strict=False)
 projection_layer = nn.Linear(128, 64).to(device)
 
-# ----------------- 2. Load Source Embeddings -----------------
+#  Load Source Embeddings 
 
-src_emb = np.load('/content/drive/MyDrive/embeddings_speechcommands.npy')
+src_emb = np.load('/content/drive/MyDrive/embeddings_speechcommands.npy') # Replace with your actual path
 source_embeddings = torch.tensor(src_emb, dtype=torch.float32, device=device)
 # source_embeddings shape [N, 2, 128]
 
 print(f"Source embeddings loaded: {source_embeddings.shape}")
 
-# ----------------- 3. Dataset Preparation -----------------
+# Dataset Preparation 
 
 def iq_to_spectrogram(iq_data, nperseg=256, noverlap=128):
     I, Q = iq_data[::2], iq_data[1::2]
@@ -450,7 +450,7 @@ class LazyH5Dataset(Dataset):
         return x1, x2, torch.tensor(lbl, dtype=torch.float32)
 
 # compute mean/std on small sample
-ds_path = '/content/drive/MyDrive/dataset_training_no_aug.h5'
+ds_path = '/content/drive/MyDrive/dataset_training_no_aug.h5' # Replace with your actual path
 with h5py.File(ds_path,'r') as f:
     samp = np.array(f['data'][:500])
 mean = np.mean([iq_to_spectrogram(s) for s in samp])
@@ -465,7 +465,7 @@ val_ds   = LazyH5Dataset(ds_path, inds[t:], mean, std)
 train_loader = DataLoader(train_ds, batch_size=32, shuffle=True, num_workers=2, pin_memory=True)
 val_loader   = DataLoader(val_ds,   batch_size=32, shuffle=False, num_workers=2, pin_memory=True)
 
-# ----------------- 4. Loss Functions -----------------
+# Loss Functions
 
 def dual_margin_contrastive_loss(z1, z2, lbl, m1, m2, threshold):
     D = F.pairwise_distance(z1, z2)
@@ -494,7 +494,7 @@ def mmd_loss(source, target, bandwidth=1.0):
     Kst = torch.exp(-gamma * pdist_sq(source, target))
     return Kss.mean() + Ktt.mean() - 2*Kst.mean()
 
-# ----------------- 5. Optimizer -----------------
+# Optimizer 
 
 # Separate parameter groups
 base_params = [p for name, p in model.named_parameters() if "learnable_margins" not in name and "learnable_threshold" not in name]
@@ -516,7 +516,7 @@ opt = AdamW([
 
 sched = CosineAnnealingLR(opt, T_max=20)#, eta_min=1e-10)
 
-# ----------------- 6. Training Loop -----------------
+#  Training Loop (Initial Training and Domain Alignment)
 
 for epoch in range(20):
     model.train()
@@ -575,7 +575,7 @@ for epoch in range(20):
     print(f"Epoch {epoch+1}/20 | Train Loss: {t_loss/len(train_loader):.4f} | Val Loss: {v_loss/len(val_loader):.4f} | m1={m1:.4f}, m2={m2:.4f}, threshold={threshold:.4f}")
 
 # Save model and projection layer
-save_path = '/content/drive/MyDrive/vit_pretrained_speechcommands.pth'
+save_path = '/content/drive/MyDrive/vit_pretrained_speechcommands.pth' # Replace with your actual path
 torch.save({
     'vit_model': model.state_dict(),
     'projection_layer': projection_layer.state_dict()
@@ -585,7 +585,7 @@ print(f"Model saved to {save_path}")
 # print(f"Max label: {max(train_ds.labels)}, Min label: {min(train_ds.labels)}")
 # print(f"Unique labels: {np.unique(train_ds.labels)}")
 
-# ---------- 1. Spectrogram ----------
+#  Spectrogram
 def iq_to_spectrogram(iq_data, nperseg=256, noverlap=128):
     I = iq_data[::2]
     Q = iq_data[1::2]
@@ -593,7 +593,7 @@ def iq_to_spectrogram(iq_data, nperseg=256, noverlap=128):
     _, _, Zxx = stft(sig, nperseg=nperseg, noverlap=noverlap)
     return np.abs(Zxx)
 
-# ---------- 2. Dataset ----------
+#  Dataset 
 class CustomH5Dataset(Dataset):
     def __init__(self, data, labels, transform=None):
         self.data = data.astype(np.float32)
@@ -610,8 +610,8 @@ class CustomH5Dataset(Dataset):
             sample = self.transform(sample)
         return sample, label
 
-# ---------- 3. Load & Process Data ----------
-dataset_path = '/content/drive/MyDrive/dataset_training_no_aug.h5'
+#  Load & Process Data 
+dataset_path = '/content/drive/MyDrive/dataset_training_no_aug.h5' # Replace with your actual path
 with h5py.File(dataset_path, 'r') as f:
     data = np.array(f['data'])
     labels = np.array(f['label']).squeeze(0)
@@ -637,7 +637,7 @@ test_dataset = CustomH5Dataset(test_data, test_labels, transform)
 train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
 
-# ---------- 4. Vision Transformer ----------
+#  Vision Transformer
 class PatchEmbedding(nn.Module):
     def __init__(self, img_size, patch_size, in_channels, embed_dim):
         super().__init__()
@@ -702,14 +702,14 @@ class VisionTransformer(nn.Module):
             x = layer(x)
         return self.classifier(x[:, 0])
 
-# ---------- 5. Model Setup ----------
+#  Model Setup 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 img_size = (256, 65)
 patch_size = (16, 8)
 model = VisionTransformer(img_size, patch_size, 1, 128, depth=6, num_heads=8, mlp_dim=256, num_classes=30).to(device)
 
-state = torch.load('/content/drive/MyDrive/vit_model_speechcommands.pth', map_location=device)
+state = torch.load('/content/drive/MyDrive/vit_model_speechcommands.pth', map_location=device) # Replace with your actual path
 if 'pos_embed' in state:
     print("Interpolating positional embeddings...")
     pre_pos = state['pos_embed']
@@ -722,7 +722,7 @@ if 'pos_embed' in state:
     state['pos_embed'] = torch.cat((cls_tok, new_patches), dim=1)
 model.load_state_dict(state, strict=False)
 
-# ---------- 6. Training ----------
+#  Training (Supervised Finetuning)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.AdamW(model.parameters(), lr=3.5e-3, weight_decay=1e-5)
 scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=55, eta_min=1e-5)
@@ -745,11 +745,11 @@ for epoch in range(55):
     acc = 100 * correct / total
     print(f"Epoch {epoch+1} | Loss: {total_loss/len(train_loader):.4f} | Acc: {acc:.2f}%")
 
-# ---------- 7. Save ----------
-torch.save(model.state_dict(), '/content/drive/MyDrive/vit_supervised_finetuned.pth')
+#  Save 
+torch.save(model.state_dict(), '/content/drive/MyDrive/vit_supervised_finetuned.pth') # Replace with your actual path
 print("Fine-tuned model saved.")
 
-# ---------- 7. Test Evaluation ----------
+# Test Evaluation
 model.eval()
 correct, total = 0, 0
 with torch.no_grad():
