@@ -75,6 +75,11 @@ main.py
 
 Again, make sure to replace the file path with the actual path to your test dataset in the code.
 
+### main_audio_dataset
+This script performs pretraining with SpeechCommands audio dataset and subsequently finetunes the model with RF data. To run:
+```python
+#main_audio_dataset.py
+```
 ## Additional Scripts
 ### Correlation Coefficients
 This script computes Spearman's and Kendall's correlation coefficients to evaluate how well the predicted rankings align with the true rankings. To run:
