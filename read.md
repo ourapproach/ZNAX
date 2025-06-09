@@ -85,7 +85,7 @@ This script performs pretraining using the SpeechCommands audio dataset, followe
 This script trains a conditional Generative Adversarial Network (GAN) to generate RF spoofed signals conditioned on device labels. The spoofed samples are then fed into our pretrained model to evaluate its robustness. To run:
 ```python
 RF_Spoofing_Adv_Examples.py
-
+```
 ### Correlation Coefficients
 This script computes Spearman's and Kendall's correlation coefficients to evaluate how well the predicted rankings align with the true rankings. To run:
 ```python
