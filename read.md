@@ -105,4 +105,4 @@ This script calculates the FLOPs (Floating Point Operations) and parameter count
 ```
 ---
 ## Experiment Variants
-The experiments for both conventional training and cross-domain knowledge transfer can be conducted using `main.py`. To switch between them, uncomment or modify the appropriate # lines in the code that correspond to each experimental setting. Make sure to replace the dataset paths and configurations accordingly when switching between modes.
+The experiments for both conventional training and cross-domain knowledge transfer can be conducted using `main.py` or `main_audio_dataset.py`. To switch between them, uncomment or modify the appropriate # lines in the code that correspond to each experimental setting. Make sure to replace the dataset paths and configurations accordingly when switching between modes.
