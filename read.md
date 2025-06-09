@@ -76,7 +76,7 @@ main.py
 Again, make sure to replace the file path with the actual path to your test dataset in the code.
 
 ### main_audio_dataset
-This script performs pretraining with SpeechCommands audio dataset and subsequently finetunes the model with RF data. To run:
+This script performs pretraining using the SpeechCommands audio dataset, followed by fine-tuning with RF data, transferring knowledge from the data-rich audio domain (source) to the data-scarce RF domain (target) for precise device authentication. To run:
 ```python
 #main_audio_dataset.py
 ```
