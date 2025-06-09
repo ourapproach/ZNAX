@@ -78,7 +78,7 @@ Again, make sure to replace the file path with the actual path to your test data
 ### main_audio_dataset
 This script performs pretraining using the SpeechCommands audio dataset, followed by fine-tuning with RF data, transferring knowledge from the data-rich audio domain (source) to the data-scarce RF domain (target) for precise device authentication. To run:
 ```python
-#main_audio_dataset.py
+main_audio_dataset.py
 ```
 ## Additional Scripts
 ### RF_Spoofing_Adv_Examples
