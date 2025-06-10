@@ -10,3 +10,5 @@ thop
 tqdm
 seaborn
 deepspeed
+torchattacks
+torchaudio
