@@ -303,7 +303,7 @@ vit.load_state_dict(vit_ckpt, strict=False)
 vit.eval()
 
 
-# Compute Mean/Std from Real Data
+
 
 dataset_path = '/content/drive/MyDrive/dataset_training_no_aug.h5' #Replace with your actual path
 with h5py.File(dataset_path, 'r') as f:
