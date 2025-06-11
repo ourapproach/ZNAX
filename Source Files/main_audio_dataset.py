@@ -1,5 +1,6 @@
 #Necessary Imports
 
+import torchaudio
 import os
 import random
 import numpy as np
@@ -16,7 +17,6 @@ from sklearn.metrics import accuracy_score, pairwise_distances
 from scipy.signal import stft
 import matplotlib.pyplot as plt
 from torchvision import datasets, transforms
-import torchaudio
 from itertools import combinations
 import h5py
 import warnings
