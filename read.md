@@ -81,6 +81,11 @@ This script performs pretraining using the SpeechCommands audio dataset, followe
 main_audio_dataset.py
 ```
 ## Additional Scripts
+### Evasion_Attacks_Evaluation
+This script evaluates the model's robustness against evasion attacks. The two variants, PGD (Projected Gradient Descent) and FGSM (Fast Gradient Sign Method), are used to generate adversarial examples. The model’s accuracy, confidence, and attack success rate are computed to assess its performance against these adversarial perturbations. To run:
+```python
+Evasion_Attacks_Evaluation.py
+```
 ### RF_Spoofing_Adv_Examples
 This script trains a conditional Generative Adversarial Network (GAN) to generate RF spoofed signals conditioned on device labels. The spoofed samples are then fed into our pretrained model to evaluate its robustness. To run:
 ```python
