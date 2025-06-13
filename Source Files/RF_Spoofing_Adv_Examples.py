@@ -333,31 +333,32 @@ transform = transforms.Compose([
 ])
 
 
-# Evaluation
 
-all_preds = []
-all_true = []
+# # Evaluation
 
-with torch.no_grad():
-    for label in range(num_classes):
-        for _ in range(n_samples_per_class):
-            noise = torch.randn(1, noise_dim).to(device)
-            label_tensor = torch.tensor([label]).to(device)
+# all_preds = []
+# all_true = []
 
-            fake_img = G(noise, label_tensor)  # shape: (1, 1, 256, 65)
-            fake_img_np = fake_img.squeeze(0).cpu().numpy()         # (1, 256, 65)
-            fake_img_tensor = torch.tensor(fake_img_np, dtype=torch.float32)
-            fake_img_transformed = transform(fake_img_tensor)       # (1, 256, 65)
-            fake_img_transformed = fake_img_transformed.unsqueeze(0).to(device)  # (1, 1, 256, 65)
+# with torch.no_grad():
+#     for label in range(num_classes):
+#         for _ in range(n_samples_per_class):
+#             noise = torch.randn(1, noise_dim).to(device)
+#             label_tensor = torch.tensor([label]).to(device)
 
-            logits = vit(fake_img_transformed)
-            pred = torch.argmax(logits, dim=1).item()
+#             fake_img = G(noise, label_tensor)  # shape: (1, 1, 256, 65)
+#             fake_img_np = fake_img.squeeze(0).cpu().numpy()         # (1, 256, 65)
+#             fake_img_tensor = torch.tensor(fake_img_np, dtype=torch.float32)
+#             fake_img_transformed = transform(fake_img_tensor)       # (1, 256, 65)
+#             fake_img_transformed = fake_img_transformed.unsqueeze(0).to(device)  # (1, 1, 256, 65)
 
-            all_preds.append(pred)
-            all_true.append(label)
+#             logits = vit(fake_img_transformed)
+#             pred = torch.argmax(logits, dim=1).item()
+
+#             all_preds.append(pred)
+#             all_true.append(label)
 
 
-# Evaluation Results
+# # Evaluation Results
 
-acc = accuracy_score(all_true, all_preds)
-print(f"Accuracy on spoofed samples: {acc * 100:.2f}%")
+# acc = accuracy_score(all_true, all_preds)
+# print(f"Accuracy on spoofed samples: {acc * 100:.2f}%")
