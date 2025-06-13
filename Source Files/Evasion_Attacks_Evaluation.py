@@ -169,15 +169,15 @@ if 'pos_embed' in state:
 model.load_state_dict(state, strict=False)
 
 # Adversarial Training 
-# Define optimizer and loss
+
 optimizer = optim.Adam(model.parameters(), lr=5e-3)#, weight_decay=1e-5)
 criterion = nn.CrossEntropyLoss()
-scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=160, eta_min=1e-5)
+scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=155, eta_min=1e-5)
 # Initialize PGD attack for adversarial examples
 pgd = torchattacks.PGD(model, eps=0.01, alpha=0.01, steps=1) # Change the value of eps to increase or decrease the perturbation ratio. Increase steps for PGD-2 and PGD-3
 
 # Training loop with adversarial examples
-for epoch in range(160):
+for epoch in range(155):
     model.train()
     total_loss, correct, total = 0, 0, 0
     for x, y in train_loader:
