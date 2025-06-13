@@ -29,7 +29,7 @@ warnings.filterwarnings("ignore")
 
 drive.mount('/content/drive') #Replace with your actual path
 ########## For PGD ################
-# Load and preprocess data for generating adversarial examples (PGD-1, PGD-2, PGD-3, FSGM)
+# Load and preprocess data for generating adversarial examples (PGD-1, PGD-2, PGD-3)
 # Spectrogram 
 def iq_to_spectrogram(iq_data, nperseg=256, noverlap=128):
     I = iq_data[::2]
@@ -425,7 +425,7 @@ criterion = nn.CrossEntropyLoss()
 scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=155, eta_min=1e-5)
 
 # Initialize FGSM attack for adversarial examples
-def fgsm_attack(model, x, y, epsilon=0.01):
+def fgsm_attack(model, x, y, epsilon=0.01): # Change the value of eps to increase or decrease the perturbation ratio.
     x.requires_grad = True
     output = model(x)
     model.zero_grad()
