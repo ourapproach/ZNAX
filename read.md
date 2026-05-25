@@ -1,9 +1,9 @@
-# Replication package for paper "Robust Device Authentication with Zero-Cost NAS and Cross-Domain Knowledge Transfer"
+# Replication package for paper "Wireless Device Authentication Via Zero-Cost NAS and Cross-Domain Knowledge Transfer"
 
 ![ZNAX Framework](./ZNAX.PNG)
 > Figure: A Conceptual Overview 
 
-This repository provides the code and resources for the research paper **"Robust Device Authentication with Zero-Cost NAS and Cross-Domain Knowledge Transfer."** The proposed framework leverages zero-cost Neural Architecture Search (NAS) and cross-domain knowledge transfer to address key challenges in deep learning-based Specific Emitter Identification (SEI).
+This repository provides the code and resources for the research paper **"Wireless Device Authentication Via Zero-Cost NAS and Cross-Domain Knowledge Transfer."** The proposed framework leverages zero-cost Neural Architecture Search (NAS) and cross-domain knowledge transfer to address key challenges in deep learning-based Specific Emitter Identification (SEI).
 
 ---
 
