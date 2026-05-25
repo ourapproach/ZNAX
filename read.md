@@ -27,9 +27,11 @@ The proposed framework addresses the neural network design complexity and data s
 - An **MLP classifier** is placed on top of the **Transformer encoder** to map the extracted RFFs to their corresponding device labels. As fine-tuning progresses, the model gradually adapts to the target domain and enables effective **device authentication under data scarcity**.
 
 ---
-
+For the source domain, well-established
+benchmark datasets from both audio and image modalities
+are utilized
 ## Datasets
-- For the source domain, well-established, data-rich image classification datasets such as **MNIST**, **CIFAR-10** and **CIFAR-100** are used.
+- For the source domain, well-established, data-rich benchmark datasets from audio and image modalities such as **SpeechCommands**, **MNIST**, **CIFAR-10** and **CIFAR-100** are used.
 - For the target domain, non-augmented **RFFI dataset** is use which consists of RF samples. **RFFI dataset** can be downloaded from https://ieee-dataport.org/open-access/lorarffidataset
 
 ---
